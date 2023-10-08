@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Task Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <script>
+      function validateForm() {
+        const regex = new RegExp("^#[A-Z0-9]{4}$");
+        let PIN = document.forms["SignUp"]["id"].value;
+        if (regex.test(PIN)) return true;
+        else {
+          alert(
+            "Your ID should be like #0000 / #AAAA / #0A0A.\nClick Ok to retry."
+          );
+          return false;
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <main>
+      <section>
+        <form
+          action="./tm_home.php"
+          method="post"
+          onsubmit="return validateForm()"
+          name="SignUp"
+        >
+          <div class="container">
+            <h1 class="title">Sign Up</h1>
+            <hr />
+            <h3>ID</h3>
+            <input type="text" name="id" placeholder="e.g. #0A0A" required />
+            <h3>Alias</h3>
+            <input
+              type="text"
+              name="alias"
+              placeholder="e.g. lunashadow"
+              required
+            />
+            <h3>Pin</h3>
+            <input type="password" name="pin" required />
+            <input type="submit" value="Sign Up" name="submit" id="button" />
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
